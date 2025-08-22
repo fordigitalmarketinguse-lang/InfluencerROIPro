@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Influencer Marketing ROI Calculator - Measure your campaign performance, estimate earnings, and optimize your influencer marketing strategy.">
+    <meta name="keywords" content="influencer marketing, roi calculator, marketing calculator, social media analytics, campaign performance, influencer metrics">
+    <title>InfluencerROIPro - Free Influencer Marketing ROI Calculator</title>
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "InfluencerROIPro",
+      "url": "https://influencer-roi-pro.vercel.app",
+      "description": "Free tool to calculate ROI for influencer marketing campaigns",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-section, .result-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+        
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        button:hover {
+            background: #d81174;
+        }
+        
+        .result-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        .result-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .metric-box {
+            background: var(--light);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .interpretation {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eef7ff;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--success);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .ads-container {
+            margin: 30px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>InfluencerROIPro</h1>
+            <p class="subtitle">Calculate your influencer marketing ROI and campaign effectiveness</p>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2>Campaign Details</h2>
+                <div class="form-group">
+                    <label for="investment">Total Investment ($)</label>
+                    <input type="number" id="investment" placeholder="e.g., 5000" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="revenue">Revenue Generated ($)</label>
+                    <input type="number" id="revenue" placeholder="e.g., 15000" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="impressions">Impressions</label>
+                    <input type="number" id="impressions" placeholder="e.g., 100000" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="engagements">Engagements</label>
+                    <input type="number" id="engagements" placeholder="e.g., 5000" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="conversions">Conversions</label>
+                    <input type="number" id="conversions" placeholder="e.g., 300" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="platform">Primary Platform</label>
+                    <select id="platform">
+                        <option value="instagram">Instagram</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <button id="calculate-btn">Calculate ROI</button>
+            </div>
+            
+            <div class="result-section">
+                <h2>ROI Results</h2>
+                
+                <div class="result-box">
+                    <p class="result-label">Return on Investment (ROI)</p>
+                    <div class="result-value" id="roi-value">0%</div>
+                    <p id="roi-interpretation">Enter data to calculate ROI</p>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-value" id="cpm-value">$0.00</div>
+                        <div class="metric-label">Cost Per Mille (CPM)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value" id="cpe-value">$0.00</div>
+                        <div class="metric-label">Cost Per Engagement (CPE)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value" id="cpc-value">$0.00</div>
+                        <div class="metric-label">Cost Per Conversion (CPC)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value" id="engagement-rate-value">0%</div>
+                        <div class="metric-label">Engagement Rate</div>
+                    </div>
+                </div>
+                
+                <div class="interpretation">
+                    <h3>Interpretation</h3>
+                    <p id="result-interpretation">Your campaign results will be interpreted here after calculation. Generally, a positive ROI indicates a profitable campaign, while a negative ROI suggests losses.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Placeholder for ads -->
+        <div class="ads-container">
+            <p>Advertisement Space</p>
+            <!-- You can add your ad code here later -->
+        </div>
+        
+        <footer>
+            <p>InfluencerROIPro &copy; 2023 | Free Influencer Marketing ROI Calculator</p>
+            <p>Disclaimer: This calculator provides estimates only. Actual results may vary.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            
+            calculateBtn.addEventListener('click', function() {
+                // Get input values
+                const investment = parseFloat(document.getElementById('investment').value) || 0;
+                const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+                const impressions = parseFloat(document.getElementById('impressions').value) || 0;
+                const engagements = parseFloat(document.getElementById('engagements').value) || 0;
+                const conversions = parseFloat(document.getElementById('conversions').value) || 0;
+                
+                // Calculate metrics
+                const roi = ((revenue - investment) / investment) * 100;
+                const cpm = impressions > 0 ? (investment / (impressions / 1000)) : 0;
+                const cpe = engagements > 0 ? (investment / engagements) : 0;
+                const cpc = conversions > 0 ? (investment / conversions) : 0;
+                const engagementRate = impressions > 0 ? ((engagements / impressions) * 100) : 0;
+                
+                // Update ROI value
+                document.getElementById('roi-value').textContent = roi.toFixed(2) + '%';
+                
+                // Update metric values
+                document.getElementById('cpm-value').textContent = '$' + cpm.toFixed(2);
+                document.getElementById('cpe-value').textContent = '$' + cpe.toFixed(2);
+                document.getElementById('cpc-value').textContent = '$' + cpc.toFixed(2);
+                document.getElementById('engagement-rate-value').textContent = engagementRate.toFixed(2) + '%';
+                
+                // Update interpretations
+                let roiInterpretation = '';
+                if (roi > 0) {
+                    roiInterpretation = 'Great! Your influencer campaign generated a positive ROI.';
+                } else if (roi < 0) {
+                    roiInterpretation = 'Your campaign resulted in a negative ROI. Consider optimizing your strategy.';
+                } else {
+                    roiInterpretation = 'Your campaign broke even (no profit, no loss).';
+                }
+                document.getElementById('roi-interpretation').textContent = roiInterpretation;
+                
+                let resultInterpretation = '';
+                if (roi > 100) {
+                    resultInterpretation = 'Exceptional campaign performance! You more than doubled your investment. This influencer and strategy are highly effective.';
+                } else if (roi > 50) {
+                    resultInterpretation = 'Strong campaign performance with good returns. This influencer partnership is working well.';
+                } else if (roi > 0) {
+                    resultInterpretation = 'Campaign was profitable but could be optimized further. Consider negotiating rates or improving content.';
+                } else if (roi === 0) {
+                    resultInterpretation = 'Campaign broke even. While you didn\'t lose money, consider adjustments to generate positive returns.';
+                } else {
+                    resultInterpretation = 'Campaign resulted in losses. Evaluate this influencer partnership and consider different approaches or creators.';
+                }
+                
+                // Add platform-specific advice
+                const platform = document.getElementById('platform').value;
+                if (platform === 'instagram') {
+                    resultInterpretation += ' For Instagram, focus on high-quality visuals and stories to boost engagement.';
+                } else if (platform === 'youtube') {
+                    resultInterpretation += ' For YouTube, consider longer content that allows for more detailed product integration.';
+                } else if (platform === 'tiktok') {
+                    resultInterpretation += ' For TikTok, authentic and trending content tends to perform best.';
+                }
+                
+                document.getElementById('result-interpretation').textContent = resultInterpretation;
+            });
+        });
+    </script>
+</body>
+  </html>
