@@ -42,6 +42,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         
         body {
             background-color: #f5f7ff;
@@ -196,14 +197,86 @@
             border-radius: var(--border-radius);
             text-align: center;
         }
+        
+        /* New styles for content sections */
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+        
+        .content-section h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .content-section h3 {
+            color: var(--primary);
+            margin: 15px 0;
+            font-size: 1.4rem;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Breadcrumb for better site structure -->
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <a href="#">Marketing Tools</a> &gt; Influencer ROI Calculator
+        </div>
+        
         <header>
             <h1>InfluencerROIPro</h1>
             <p class="subtitle">Calculate your influencer marketing ROI and campaign effectiveness</p>
         </header>
+        
+        <div class="content-section">
+            <h2>What is Influencer Marketing ROI?</h2>
+            <p>Influencer Marketing Return on Investment (ROI) measures the profitability of your influencer campaigns. It helps you determine whether the revenue generated from your influencer partnerships justifies the investment made.</p>
+            <p>Calculating ROI is essential for:</p>
+            <ul>
+                <li>Determining campaign effectiveness</li>
+                <li>Making data-driven decisions for future campaigns</li>
+                <li>Justifying marketing spend to stakeholders</li>
+                <li>Identifying top-performing influencers and content</li>
+            </ul>
+        </div>
         
         <div class="calculator-container">
             <div class="input-section">
@@ -283,6 +356,57 @@
             </div>
         </div>
         
+        <div class="content-section">
+            <h2>How to Calculate Influencer Marketing ROI</h2>
+            <p>To accurately calculate your influencer marketing ROI, you need to track several key metrics:</p>
+            
+            <h3>ROI Formula</h3>
+            <p>The basic formula for calculating ROI is:</p>
+            <p><strong>ROI = [(Revenue - Investment) / Investment] × 100</strong></p>
+            
+            <h3>Additional Important Metrics</h3>
+            <ul>
+                <li><strong>Cost Per Mille (CPM):</strong> The cost per 1,000 impressions</li>
+                <li><strong>Cost Per Engagement (CPE):</strong> The cost for each engagement (like, comment, share)</li>
+                <li><strong>Cost Per Conversion (CPC):</strong> The cost for each conversion (sale, sign-up, etc.)</li>
+                <li><strong>Engagement Rate:</strong> The percentage of followers who engage with content</li>
+            </ul>
+            
+            <h3>Tips for Improving Your Influencer Marketing ROI</h3>
+            <ol>
+                <li>Choose influencers whose audience matches your target demographic</li>
+                <li>Set clear campaign goals and KPIs from the beginning</li>
+                <li>Use trackable links and promo codes to measure conversions</li>
+                <li>Negotiate performance-based compensation with influencers</li>
+                <li>Test different content formats and messaging approaches</li>
+                <li>Analyze results and optimize future campaigns based on data</li>
+            </ol>
+        </div>
+        
+        <div class="content-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question">What is a good ROI for influencer marketing?</p>
+                <p>A good ROI varies by industry, but generally, a 5:1 ratio ($5 revenue for every $1 spent) is considered strong. Many successful campaigns achieve even higher returns.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">How long does it take to see ROI from influencer marketing?</p>
+                <p>This depends on your sales cycle. Some campaigns generate immediate returns, while others may take weeks or months to show full results, especially for brand awareness objectives.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">Should I work with micro-influencers or macro-influencers?</p>
+                <p>Micro-influencers often have higher engagement rates and are more cost-effective, while macro-influencers offer broader reach. The best choice depends on your campaign goals.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">How can I track influencer marketing ROI?</p>
+                <p>Use trackable links, unique promo codes, UTM parameters, and dedicated landing pages. Also consider asking customers how they discovered your brand.</p>
+            </div>
+        </div>
+        
         <!-- Placeholder for ads -->
         <div class="ads-container">
             <p>Advertisement Space</p>
@@ -291,7 +415,7 @@
         
         <footer>
             <p>InfluencerROIPro &copy; 2023 | Free Influencer Marketing ROI Calculator</p>
-            <p>Disclaimer: This calculator provides estimates only. Actual results may vary.</p>
+            <p>Disclaimer: This calculator provides estimates only. Actual results may vary based on tracking accuracy and other factors.</p>
         </footer>
     </div>
 
@@ -362,4 +486,4 @@
         });
     </script>
 </body>
-  </html>
+    </html>
