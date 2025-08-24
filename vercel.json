@@ -13,3 +13,12 @@
     }
   ]
 }
+
+{
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    }
+  ]
+}
