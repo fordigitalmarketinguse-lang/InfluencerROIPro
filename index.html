@@ -76,6 +76,40 @@
             opacity: 0.9;
         }
         
+        /* Navigation Styles */
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            background-color: #f0f2ff;
+        }
+        
         .calculator-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -85,6 +119,15 @@
         @media (max-width: 768px) {
             .calculator-container {
                 grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
             }
         }
         
@@ -256,15 +299,20 @@
 </head>
 <body>
     <div class="container">
-        <!-- Breadcrumb for better site structure -->
-        <div class="breadcrumb">
-            <a href="#">Home</a> &gt; <a href="#">Marketing Tools</a> &gt; Influencer ROI Calculator
-        </div>
-        
         <header>
             <h1>InfluencerROIPro</h1>
             <p class="subtitle">Calculate your influencer marketing ROI and campaign effectiveness</p>
         </header>
+        
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
         
         <div class="content-section">
             <h2>What is Influencer Marketing ROI?</h2>
@@ -415,6 +463,12 @@
         
         <footer>
             <p>InfluencerROIPro &copy; 2023 | Free Influencer Marketing ROI Calculator</p>
+            <p>Email: <a href="mailto:reachdizovia@gmail.com">reachdizovia@gmail.com</a></p>
+            <p>Check out our other tools: 
+                <a href="https://photo-editor-pro.vercel.app/" target="_blank">Photo Editor Pro</a> | 
+                <a href="https://hashtag-generatorft.vercel.app/" target="_blank">Hashtag Generator</a> | 
+                <a href="https://new-version-of-notepad.vercel.app/" target="_blank">Notepad App</a>
+            </p>
             <p>Disclaimer: This calculator provides estimates only. Actual results may vary based on tracking accuracy and other factors.</p>
         </footer>
     </div>
